@@ -1,26 +1,20 @@
-﻿using System;
-
-namespace TransportBuilder
+﻿namespace ToyotaAbstractFactory 
 {
-	public class Program
-	{
+    class Program 
+    {
+        static void Main(string[] args) 
+        {
+            ToyotaFactory myToyota = new JapanFactory();
+            var prius = myToyota.CreateModel();
+            prius.Print();
 
-		static void Main(string[] args)
-		{
-			Director director = new Director();
-			Builder carBuilder = new CarBuilder();
-			director.Construct(carBuilder);
+            Console.WriteLine();
+                
+            myToyota = new EuropeFactory();  
+            var corolla = myToyota.CreateModel();  
+            corolla.Print();
 
-			carBuilder.GetProduct().PrintInfo();
-
-			Builder motorBuilder = new MotorBuilder();
-			director.Construct(motorBuilder);
-
-			motorBuilder.GetProduct().PrintInfo();
-
-			Console.ReadKey();
-
-		}
-	}
-
+            Console.ReadKey();
+        } 
+    }
 }
