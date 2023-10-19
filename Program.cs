@@ -1,20 +1,26 @@
-﻿namespace ToyotaAbstractFactory 
+﻿using System;
+
+namespace RobotBuilder
 {
-    class Program 
-    {
-        static void Main(string[] args) 
-        {
-            ToyotaFactory myToyota = new JapanFactory();
-            var prius = myToyota.CreateModel();
-            prius.Print();
+	public class Program
+	{
 
-            Console.WriteLine();
-                
-            myToyota = new EuropeFactory();  
-            var corolla = myToyota.CreateModel();  
-            corolla.Print();
+		static void Main(string[] args) 
+		{
+			Director director = new Director();
+			Builder newRobotBuilder = new NewRobotBuilder();
+			director.Construct(newRobotBuilder);
 
-            Console.ReadKey();
-        } 
-    }
+			newRobotBuilder.GetProduct().PrintInfo();
+
+			Builder oldRobotBuilder = new OldRobotBuilder();
+			director.Construct(oldRobotBuilder);
+
+			oldRobotBuilder.GetProduct().PrintInfo();
+
+			Console.ReadKey();
+		
+		}
+	}
+
 }
