@@ -1,20 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TransportBuilder
+namespace RobotBuilder
 {
-    abstract class Builder
-    {
-        public abstract void BuildFrame();
-        public abstract void BuildEngine();   
-        public abstract void BuildDoors();
+	abstract class Builder
+	{
+		public abstract void BuildHead();
+		public abstract void BuildBody();
+		public abstract void BuildHands();
 
-        public abstract void BuildWheels();
+		public abstract void BuildLegs();
 
-        public abstract Product GetProduct();
-    }
+		public abstract Product GetProduct();
+	}
 }
