@@ -4,23 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TransportBuilder
+namespace RobotBuilder
 {
-    class Product
-    {
-        public string Frame { get; set; }
-        public string Engine { get; set; }
-        public int Doors { get; set; }
-        public int Wheels { get; set; }
+	class Product
+	{
+		public int Head { get; set; }
+		public int Body { get; set; }
+		public int Hands { get; set; }
+		public int Legs { get; set; }
 
-        public void PrintInfo() 
-        {
-            Console.WriteLine("Frame: {0}", Frame);
-            Console.WriteLine("Engine: {0}", Engine);
-            Console.WriteLine("Doors: {0}", Doors);
-            Console.WriteLine("Wheels: {0}", Wheels);
-            
-        }
+		public void PrintInfo()
+		{
+			Console.WriteLine("Head: {0}", Head);
+			Console.WriteLine("Body: {0}", Body);
+			Console.WriteLine("Hands: {0}", Hands);
+			Console.WriteLine("Legs: {0}", Legs);
 
-    }
+		}
+
+	}
 }
