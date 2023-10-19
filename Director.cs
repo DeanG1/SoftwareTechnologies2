@@ -4,17 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TransportBuilder
+namespace RobotBuilder
 {
-     class Director
-    {
-        public void Construct(Builder builder) 
-        {
-            builder.BuildFrame();
-            builder.BuildEngine();
-            builder.BuildDoors();
-            builder.BuildWheels();
+	class Director
+	{
+		public void Construct(Builder builder)
+		{
+			builder.BuildHead();
+			builder.BuildBody();
+			builder.BuildHands();
+			builder.BuildLegs();
 
-        }
-    }
+		}
+	}
 }
