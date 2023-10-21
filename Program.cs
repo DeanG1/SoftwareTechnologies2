@@ -1,26 +1,33 @@
-﻿using System;
-
-namespace RobotBuilder
+﻿namespace CompositeStructure
 {
-	public class Program
-	{
+    internal class Program 
+    
+    {
+       static void Main(string[] args) 
+        
+       {
+            Client client = new Client();
+            Leaf leaf = new Leaf();
+            Console.WriteLine("Client: I get a simple component:");
 
-		static void Main(string[] args) 
-		{
-			Director director = new Director();
-			Builder newRobotBuilder = new NewRobotBuilder();
-			director.Construct(newRobotBuilder);
+            client.ClientCode(leaf);
 
-			newRobotBuilder.GetProduct().PrintInfo();
+            Composite tree = new Composite();    
+            Composite branch1 = new Composite();
 
-			Builder oldRobotBuilder = new OldRobotBuilder();
-			director.Construct(oldRobotBuilder);
+            branch1.Add(new Leaf());
+            branch1.Add(new Leaf());
 
-			oldRobotBuilder.GetProduct().PrintInfo();
+            Composite branch2 = new Composite();
+            tree.Add(branch1);
+            tree.Add(branch2);
 
-			Console.ReadKey();
-		
-		}
-	}
+            Console.WriteLine("Client: Now I've got a composite tree.");
+            client.ClientCode(tree);
 
+            Console.WriteLine("Client: I don't need to check the components" + "classes even when managing the tree:\n");
+
+            client.ClientCode2(tree, leaf);
+        }  
+    }
 }
