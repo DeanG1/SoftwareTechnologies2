@@ -1,33 +1,27 @@
-﻿namespace CompositeStructure
+﻿namespace BooksAdapter
 {
     internal class Program 
-    
     {
-       static void Main(string[] args) 
-        
-       {
-            Client client = new Client();
-            Leaf leaf = new Leaf();
-            Console.WriteLine("Client: I get a simple component:");
+        static void Main(string[] args) 
+        {
+            Library unknown = new Library("Unknown");
+            unknown.Display();
 
-            client.ClientCode(leaf);
+            //Adapter books
+            Library book1 = new Book("1");
+            book1.Display();
 
-            Composite tree = new Composite();    
-            Composite branch1 = new Composite();
+            Library book2 = new Book("2");
+            book2.Display();
 
-            branch1.Add(new Leaf());
-            branch1.Add(new Leaf());
 
-            Composite branch2 = new Composite();
-            tree.Add(branch1);
-            tree.Add(branch2);
+            Library book3 = new Book("3");
+            book3.Display();
 
-            Console.WriteLine("Client: Now I've got a composite tree.");
-            client.ClientCode(tree);
+            Console.ReadKey();
 
-            Console.WriteLine("Client: I don't need to check the components" + "classes even when managing the tree:\n");
-
-            client.ClientCode2(tree, leaf);
-        }  
+        }
     }
+
+
 }
