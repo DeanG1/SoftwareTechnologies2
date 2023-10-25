@@ -1,27 +1,20 @@
-﻿namespace BooksAdapter
+﻿namespace StrategyNightBar
 {
-    internal class Program 
+    class Program
     {
-        static void Main(string[] args) 
-        {
-            Library unknown = new Library("Unknown");
-            unknown.Display();
+        static void Main(string[] args){
+            Drink drink1 = new Drink(5, 1);
+            Drink drink2 = new Drink(10, 2);
 
-            //Adapter books
-            Library book1 = new Book("1");
-            book1.Display();
+            Order order = new Order();
+            order.AddDrink(drink1); 
+            order.AddDrink(drink2); 
 
-            Library book2 = new Book("2");
-            book2.Display();
+            NightBarStrategy strategy1 = new DayStrategy();
+            strategy1.Calculate(order.TotalAmount());
 
-
-            Library book3 = new Book("3");
-            book3.Display();
-
-            Console.ReadKey();
-
+            NightBarStrategy strategy2 = new NormalStrategy();
+            strategy2.Calculate(order.TotalAmount());
         }
     }
-
-
 }
