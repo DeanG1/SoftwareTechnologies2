@@ -1,16 +1,18 @@
-﻿namespace CommandStructure
+﻿namespace HotDrink
 {
     internal class Program
     {
         static void Main(string[] args)
-        {                                                                                                                                                                                                                                                                                                                                                                                                                                         
-            Invoker invoker = new Invoker();
-            invoker.SetOnStart(new SimpleCommand("Say Hi!"));
-            Receiver receiver = new Receiver();
-            invoker.SetOnFinish(new ComplexCommand(receiver, "Send email", "Save report"));
+        {
+            Tea tea = new Tea();    
+            tea.MakeDrink();
 
-            invoker.DoSomethingImportant();
+            Console.WriteLine();
+
+            Coffee coffee = new Coffee();
+            coffee.MakeDrink();
+
+
         }
-
     }
 }
