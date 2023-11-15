@@ -1,18 +1,20 @@
-﻿namespace HotDrink
+﻿using System;
+
+namespace pizzaApp_2101681075
 {
-    internal class Program
-    {
-        static void Main(string[] args)
-        {
-            Tea tea = new Tea();    
-            tea.MakeDrink();
+	internal class Program
+	{
+		static void Main(string[] args)
+		{
+			MeatPizza meatPizza = new MeatPizza();
+			meatPizza.MakePizza();
 
-            Console.WriteLine();
+			VeganPizza veganPizza = new VeganPizza();
+			veganPizza.MakePizza();
 
-            Coffee coffee = new Coffee();
-            coffee.MakeDrink();
+			Console.ReadLine();
 
 
-        }
-    }
+		}
+	}
 }
